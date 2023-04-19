@@ -13,6 +13,7 @@ namespace ProjectWork.Forms.Tasks {
             InitializeComponent();
             updateDataGrid();
         }
+
         private void expertUpDown_ValueChanged(object sender, EventArgs e) {
             updateDataGrid();
         }
@@ -76,14 +77,12 @@ namespace ProjectWork.Forms.Tasks {
                 w = 12 / (Math.Pow(experts, 2) * (Math.Pow(versions, 3) - versions) - experts * t) * s;
             }
 
-            double a = experts * (versions - 1) * w;
-            double b = ChiSquared.InvCDF(versions - 1, 1 - (double) significanceUpDown.Value);
+            double chiCalculated = experts * (versions - 1) * w;
+            double chi = ChiSquared.InvCDF(versions - 1, 1 - (double) significanceUpDown.Value);
 
             StringBuilder sb = new StringBuilder();
-            sb.Append(a >= b
-                ? "Конкордация значима\n"
-                : "Конкордация незначима\n");
-            sb.Append("Согласованность: " + w + "\n");
+            sb.AppendLine($"Конкордация {(chiCalculated >= chi ? "значима" : "незначима")}");
+            sb.AppendLine("Согласованность: " + w);
             sb.Append("Наиболее вероятная версия: " + (minVersionSum + 1));
             MessageBox.Show(sb.ToString());
         }
@@ -108,7 +107,12 @@ namespace ProjectWork.Forms.Tasks {
                     dataGridView.Rows.RemoveAt(dataGridView.Rows.Count - 1);
                 }
             }
-            dataGridView.AutoResizeColumns();
+            int rowHeight = (dataGridView.Size.Height - dataGridView.ColumnHeadersHeight) / dataGridView.Rows.Count;
+            if (rowHeight > 0) {
+                for (int i = 0; i < dataGridView.Rows.Count; i++) {
+                    dataGridView.Rows[i].Height = rowHeight;
+                }
+            }
         }
     }
 }

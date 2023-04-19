@@ -10,7 +10,7 @@ namespace ProjectWork {
     public static class Program {
 
         [STAThread]
-        private static void Main() {
+        public static void Main() {
             using (Mutex mutex = new Mutex(false, "Global\\" + Assembly
                 .GetExecutingAssembly().GetCustomAttribute<GuidAttribute>().Value)) {
                 if (!mutex.WaitOne(0, false)) {
