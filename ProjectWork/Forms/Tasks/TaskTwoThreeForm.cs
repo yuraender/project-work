@@ -107,6 +107,10 @@ namespace ProjectWork.Forms.Tasks {
                     dataGridView.Rows.RemoveAt(dataGridView.Rows.Count - 1);
                 }
             }
+
+            foreach (DataGridViewColumn column in dataGridView.Columns) {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
             int rowHeight = (dataGridView.Size.Height - dataGridView.ColumnHeadersHeight) / dataGridView.Rows.Count;
             if (rowHeight > 0) {
                 for (int i = 0; i < dataGridView.Rows.Count; i++) {
