@@ -41,10 +41,16 @@
     <Reference Include="MathNet.Numerics, Version=4.15.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MathNet.Numerics.4.15.0\lib\net40\MathNet.Numerics.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,11 +62,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Tasks\One\CombinationEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tasks\One\CombinationEditForm.Designer.cs">
+      <DependentUpon>CombinationEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tasks\One\ImplementationEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tasks\One\ImplementationEditForm.Designer.cs">
+      <DependentUpon>ImplementationEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\BindingEntity.cs" />
+    <Compile Include="Utils\EnumToStringConverter.cs" />
+    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="Enums\CrudAction.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\One\Characteristic.cs" />
+    <Compile Include="Entities\One\Combination.cs" />
+    <Compile Include="Entities\One\Subsystem.cs" />
+    <Compile Include="Forms\Tasks\One\CharacteristicEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tasks\One\CharacteristicEditForm.Designer.cs">
+      <DependentUpon>CharacteristicEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tasks\One\SubsystemEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tasks\One\SubsystemEditForm.Designer.cs">
+      <DependentUpon>SubsystemEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tasks\TaskOneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tasks\TaskOneForm.Designer.cs">
+      <DependentUpon>TaskOneForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Tasks\TaskTwoThreeForm.cs">
       <SubType>Form</SubType>
@@ -72,6 +115,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tasks\One\CharacteristicEditForm.resx">
+      <DependentUpon>CharacteristicEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tasks\One\CombinationEditForm.resx">
+      <DependentUpon>CombinationEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tasks\One\ImplementationEditForm.resx">
+      <DependentUpon>ImplementationEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tasks\One\SubsystemEditForm.resx">
+      <DependentUpon>SubsystemEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tasks\TaskOneForm.resx">
+      <DependentUpon>TaskOneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tasks\TaskTwoThreeForm.resx">
       <DependentUpon>TaskTwoThreeForm.cs</DependentUpon>

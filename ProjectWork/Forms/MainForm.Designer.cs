@@ -33,7 +33,7 @@
             this.taskOneButton.Name = "taskOneButton";
             this.taskOneButton.Size = new System.Drawing.Size(141, 53);
             this.taskOneButton.TabIndex = 0;
-            this.taskOneButton.Text = "Структурный синтез";
+            this.taskOneButton.Text = "Структурный синтез систем";
             this.taskOneButton.UseVisualStyleBackColor = true;
             this.taskOneButton.Click += new System.EventHandler(this.taskOneButton_Click);
             // 

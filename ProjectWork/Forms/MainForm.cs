@@ -1,4 +1,5 @@
 ﻿using ProjectWork.Forms.Tasks;
+using System;
 using System.Windows.Forms;
 
 namespace ProjectWork.Forms {
@@ -9,11 +10,11 @@ namespace ProjectWork.Forms {
             InitializeComponent();
         }
 
-        private void taskOneButton_Click(object sender, System.EventArgs e) {
-
+        private void taskOneButton_Click(object sender, EventArgs e) {
+            new TaskOneForm().ShowDialog();
         }
 
-        private void taskTwoThreeButton_Click(object sender, System.EventArgs e) {
+        private void taskTwoThreeButton_Click(object sender, EventArgs e) {
             new TaskTwoThreeForm().ShowDialog();
         }
     }
