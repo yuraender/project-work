@@ -143,40 +143,84 @@ namespace ProjectWork.Forms.Tasks
             double[] v1 = new double[dataGridView1.Columns.Count];
             for (int i = 0; i < dataGridView1.Columns.Count;i++)
             {
-                v0[i] = 1;
+                v1[i] = 1;
+
             }
             for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
-                w0[i] = 1;
+                w1[i] = 1;
             }
-            //
-            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            for (int q = 0; q <= 7; q++)
             {
-                v1[i] = 0;
-            }
-            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
-            {
-                w1[i] = 0;
-            }
-            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
-            {
-                for(int k = 0; k < dataGridView1.Columns.Count; k++)
+                for (int i = 0; i < dataGridView1.Columns.Count; i++)
                 {
-                    w1[i] = w1[i] + v0[k] * table[k ,i+1];
+                    v0[i] = v1[i];
+
                 }
-            }
-            double mmax = double.MinValue;
-            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
-            {
-                if (w1[i] > mmax)
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                 {
-                    mmax = w1[i];
+                    w0[i] = w1[i];
+                }
+                //То, что возможно будет в цикле
+                // Обнуление новых данных
+                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                {
+                    v1[i] = 0;
+                }
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {
+                    w1[i] = 0;
+                }
+                // заполнение данных версиями
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {
+                    for (int k = 0; k < dataGridView1.Columns.Count; k++)
+                    {
+                        w1[i] = w1[i] + v0[k] * table[k, i + 1];
+                    }
+                }
+                double mmax = double.MinValue;
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {
+                    if (w1[i] > mmax)
+                    {
+                        mmax = w1[i];
+                    }
+                }
+                for (int k = 0; k < dataGridView1.Rows.Count - 1; k++)
+                {
+                    w1[k] = w1[k] / mmax;
+ //                   MessageBox.Show(w1[k].ToString());
+                }
+                //
+                for (int k = 0; k < dataGridView1.Columns.Count; k++)
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                    {
+                        v1[k] = v1[k] + w0[i] * table[k, i + 1];
+                    }
+                }
+                mmax = double.MinValue;
+                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                {
+                    if (v1[i] > mmax)
+                    {
+                        mmax = v1[i];
+                    }
+                }
+                for (int k = 0; k < dataGridView1.Columns.Count; k++)
+                {
+                    v1[k] = v1[k] / mmax;
+ //                   MessageBox.Show(v1[k].ToString());
                 }
             }
             for (int k = 0; k < dataGridView1.Rows.Count - 1; k++)
             {
-                w1[k] = w1[k] / mmax;
                 MessageBox.Show(w1[k].ToString());
+            }
+            for (int k = 0; k < dataGridView1.Columns.Count; k++)
+            {
+                MessageBox.Show(v1[k].ToString());
             }
         }
 
