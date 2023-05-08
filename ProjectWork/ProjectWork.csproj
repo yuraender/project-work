@@ -72,6 +72,12 @@
     <Compile Include="Forms\Tasks\One\ImplementationEditForm.Designer.cs">
       <DependentUpon>ImplementationEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Tasks\TaskFourForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tasks\TaskFourForm.Designer.cs">
+      <DependentUpon>TaskFourForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\BindingEntity.cs" />
     <Compile Include="Utils\EnumToStringConverter.cs" />
     <Compile Include="Utils\Extensions.cs" />
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tasks\One\SubsystemEditForm.resx">
       <DependentUpon>SubsystemEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tasks\TaskFourForm.resx">
+      <DependentUpon>TaskFourForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tasks\TaskOneForm.resx">
       <DependentUpon>TaskOneForm.cs</DependentUpon>

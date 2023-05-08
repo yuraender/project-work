@@ -17,5 +17,10 @@ namespace ProjectWork.Forms {
         private void taskTwoThreeButton_Click(object sender, EventArgs e) {
             new TaskTwoThreeForm().ShowDialog();
         }
+
+        private void spectralAnalysis_Click(object sender, EventArgs e)
+        {
+            new TaskFourForm().ShowDialog();
+        }
     }
 }
