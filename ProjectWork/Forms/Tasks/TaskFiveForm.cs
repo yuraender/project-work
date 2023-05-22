@@ -5,13 +5,13 @@ using System.Windows.Forms;
 
 namespace ProjectWork.Forms.Tasks {
 
-    public partial class TaskFourForm : Form {
+    public partial class TaskFiveForm : Form {
 
-        public TaskFourForm() {
+        public TaskFiveForm() {
             InitializeComponent();
         }
 
-        private void TaskFourForm_Load(object sender, EventArgs e) {
+        private void TaskFiveForm_Load(object sender, EventArgs e) {
             UpdateDataGrid();
         }
 
@@ -58,6 +58,30 @@ namespace ProjectWork.Forms.Tasks {
                     for (int k = 1; k < dataGridView1.Rows.Count; k++) {
                         table[i, k] = min / double.Parse(dataGridView1.Rows[k].Cells[i].Value.ToString());
                     }
+                }
+            }
+
+            // Учет энтропии
+            double[,] table2 = new double[dataGridView1.Columns.Count, dataGridView1.Rows.Count];
+            double[] enthropyTable = new double[dataGridView1.Columns.Count];
+            for (int i = 0; i < dataGridView1.Columns.Count; i++) {
+                double sum = 0;
+                for (int k = 1; k < dataGridView1.Rows.Count; k++) {
+                    table2[i, k] = table[i, k] * Math.Log(table[i, k]);
+                    sum -= table2[i, k] / (dataGridView1.Rows.Count - 1);
+                }
+                enthropyTable[i] = 1 - sum;
+            }
+            double enthropySum = 0;
+            for (int i = 0; i < dataGridView1.Columns.Count; i++) {
+                enthropySum += enthropyTable[i];
+            }
+            for (int i = 0; i < dataGridView1.Columns.Count; i++) {
+                enthropyTable[i] /= enthropySum;
+            }
+            for (int i = 0; i < dataGridView1.Columns.Count; i++) {
+                for (int k = 1; k < dataGridView1.Rows.Count; k++) {
+                    table[i, k] *= enthropyTable[i];
                 }
             }
 
