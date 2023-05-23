@@ -114,7 +114,7 @@ namespace ProjectWork.Forms.Tasks {
                 / dataGridView1.Rows.Count;
             if (rowHeight > 0) {
                 for (int i = 0; i < dataGridView1.Rows.Count; i++) {
-                    dataGridView1.Rows[i].Height = rowHeight + 1;
+                    dataGridView1.Rows[i].Height = rowHeight;
                 }
             }
         }
