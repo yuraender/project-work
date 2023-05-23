@@ -21,5 +21,17 @@ namespace ProjectWork.Forms {
         private void taskFourButton_Click(object sender, EventArgs e) {
             new TaskFourForm().ShowDialog();
         }
+
+        private void taskFiveButton_Click(object sender, EventArgs e) {
+            new TaskFiveForm().ShowDialog();
+        }
+
+        private void taskSixButton_Click(object sender, EventArgs e) {
+            new TaskSixForm().ShowDialog();
+        }
+
+        private void taskSevenButton_Click(object sender, EventArgs e) {
+
+        }
     }
 }
