@@ -25,7 +25,8 @@ namespace ProjectWork.Forms.Tasks {
 
         private void solve_Click(object sender, EventArgs e) {
             foreach (DataGridViewCell cell in dataGridView1.Rows[0].Cells) {
-                if (!int.TryParse(cell.Value.ToString(), out int type) || (type != 0 && type != 1)) {
+                if (cell.Value == null || !int.TryParse(cell.Value.ToString(), out int type)
+                    || (type != 0 && type != 1)) {
                     MessageBox.Show(
                         "Неверный режим.", "",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning
