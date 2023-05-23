@@ -78,7 +78,7 @@ namespace ProjectWork.Forms.Tasks {
             chart1.ChartAreas[0].AxisX.Minimum = 0;
             chart1.ChartAreas[0].AxisY.Minimum = 0;
             chart1.ChartAreas[0].AxisX.Maximum = _scaleX + 1;
-            chart1.ChartAreas[0].AxisY.Maximum = _scaleY + 1;
+            chart1.ChartAreas[0].AxisY.Maximum = Math.Max(10, _scaleY + 1);
 
             // Condition 1: x2 = 0.5 * (6 - x1)
             chart1.Series.Add("1");
