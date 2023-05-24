@@ -54,8 +54,6 @@ namespace ProjectWork.Forms.Tasks.One {
             foreach (DataGridViewRow row in dataGridView.Rows) {
                 if (row.Cells[0].Value == null
                     || !double.TryParse(row.Cells[0].Value.ToString(), out double value)
-                    || value < _form.Characteristics[row.Index].Value.Min
-                    || value > _form.Characteristics[row.Index].Value.Max
                 ) {
                     MessageBox.Show(
                         "Введены неверные данные.", "",

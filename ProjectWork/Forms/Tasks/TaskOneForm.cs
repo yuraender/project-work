@@ -101,15 +101,19 @@ namespace ProjectWork.Forms.Tasks {
                 .Cast<Combination>()
                 .Where(c => c.IsValid())
                 .ToList();
-            Combination bestCombination = combinations
-                .OrderByDescending(c => c.Calculate()
-                    .Where(p => p.Key.Criteria == CharacteristicCriteria.Max)
-                    .All(p => p.Value == combinations.Max(c1 => c1.Calculate()[p.Key]))
-                )
-                .FirstOrDefault();
-            MessageBox.Show("Лучшая связка:\n\n"
-                + JsonConvert.SerializeObject(bestCombination.Calculate(), Formatting.Indented)
-            );
+            if (combinations.Count != 0) {
+                Combination bestCombination = combinations
+                   .OrderByDescending(c => c.Calculate()
+                       .Where(p => p.Key.Criteria == CharacteristicCriteria.Max)
+                       .All(p => p.Value == combinations.Max(c1 => c1.Calculate()[p.Key]))
+                   )
+                   .FirstOrDefault();
+                MessageBox.Show("Лучшая связка:\n\n"
+                    + JsonConvert.SerializeObject(bestCombination.Calculate(), Formatting.Indented)
+                );
+            } else {
+                MessageBox.Show("Ни одна из связок не удовлетворяет условие.");
+            }
         }
     }
 }
